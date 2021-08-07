@@ -32,13 +32,13 @@ const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io
       // Get the ERC-20 token symbol (for tickers and UIs)
       console.log(contract.symbol());
       // { Promise: 'DAI' }
-      
+      document.body.innerHTML =  document.body.innerHTML  + "<br />" + contract.decimals(); 
       console.log(contract.decimals());    
 
       // Get the balance of an address
       contract.totalSupply().then(function (res) {
           console.log(ethers.utils.formatEther(res));
-          console.log((123456789 * (10 ** 18)));
+          document.body.innerHTML =  document.body.innerHTML  + "<br />" + ethers.utils.formatEther(res); 
       });
     }); 
 </script>
