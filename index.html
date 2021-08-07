@@ -38,7 +38,7 @@ const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io
       // Get the balance of an address
       contract.totalSupply().then(function (res) {
           console.log(ethers.utils.formatEther(res));
-          console.log((123456789 * (10 ** 18)));
+          document.body.innerHTML = ethers.utils.formatEther(res);
       });
     }); 
 </script>
