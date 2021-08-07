@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>      
 <script>
 const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/b1f3c1aa6aa34446b58705ff334fb58f");
@@ -23,7 +20,9 @@ const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io
 
       // The Contract object
       const contract = new ethers.Contract(address, abi, provider);
-
+      
+  let totalSupply = 0;
+      
   window.addEventListener('load', function () {
       // Get the ERC-20 token name
       console.log(contract.name());
@@ -32,19 +31,12 @@ const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io
       // Get the ERC-20 token symbol (for tickers and UIs)
       console.log(contract.symbol());
       // { Promise: 'DAI' }
-      document.body.innerHTML =  document.body.innerHTML  + "<br />" + contract.decimals(); 
       console.log(contract.decimals());    
 
       // Get the balance of an address
       contract.totalSupply().then(function (res) {
           console.log(ethers.utils.formatEther(res));
-          document.body.innerHTML =  document.body.innerHTML  + "<br />" + ethers.utils.formatEther(res); 
+          totalSypply = ethers.utils.formatEther(res);
       });
     }); 
 </script>
-
-</head>
-<body>
-x
-</body>
-</html>
